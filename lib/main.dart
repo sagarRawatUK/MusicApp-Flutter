@@ -11,6 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool isplaying = false;
   FilePickerResult result;
   double slidervalue = 0;
   AudioPlayer player = new AudioPlayer();
@@ -34,7 +35,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    bool isplaying = false;
     Widget home() {
       return Scaffold(
           appBar: AppBar(
@@ -99,15 +99,16 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   SizedBox(
-                    height: 25,
+                    height: 10,
                   ),
                   Text(
-                    "Song Title",
-                    style: TextStyle(fontSize: 20),
+                    result != null
+                        ? result.files.single.name.split(".")[0]
+                        : "Play Music ",
+                    style: TextStyle(fontSize: 18),
                   ),
-                  Text("Artist Name, Label"),
                   SizedBox(
-                    height: 25,
+                    height: 70,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -153,16 +154,18 @@ class _MyAppState extends State<MyApp> {
                               Icon(isplaying ? Icons.pause : Icons.play_arrow),
                           iconSize: 60,
                           onPressed: () {
-                            if (isplaying) {
-                              player.pause();
-                              setState(() {
-                                isplaying = false;
-                              });
-                            } else {
-                              player.resume();
-                              setState(() {
-                                isplaying = true;
-                              });
+                            if (result != null) {
+                              if (isplaying) {
+                                player.pause();
+                                setState(() {
+                                  isplaying = false;
+                                });
+                              } else {
+                                player.resume();
+                                setState(() {
+                                  isplaying = true;
+                                });
+                              }
                             }
                           }),
                       IconButton(icon: Icon(Icons.skip_next), onPressed: () {}),
