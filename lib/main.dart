@@ -99,7 +99,7 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 70,
                   ),
                   Text(
                     result != null
@@ -108,7 +108,7 @@ class _MyAppState extends State<MyApp> {
                     style: TextStyle(fontSize: 18),
                   ),
                   SizedBox(
-                    height: 70,
+                    height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -140,9 +140,6 @@ class _MyAppState extends State<MyApp> {
                           ? totaltime.toString().split(".")[0]
                           : "00.00")
                     ],
-                  ),
-                  SizedBox(
-                    height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
