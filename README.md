@@ -1,16 +1,8 @@
 # MusicApp
 
-A new Flutter project.
+A Music Player made with Dart and Flutter SDK.
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![WhatsApp Image 2020-10-04 at 10 05 44 AM (1)](https://user-images.githubusercontent.com/60035156/95007156-052a8d80-062a-11eb-9a06-dc3eacb20fcc.jpeg)
+![WhatsApp Image 2020-10-04 at 10 05 44 AM](https://user-images.githubusercontent.com/60035156/95007158-06f45100-062a-11eb-901b-85dece13ca02.jpeg)
