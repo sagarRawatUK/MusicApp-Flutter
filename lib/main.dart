@@ -2,6 +2,7 @@ import 'package:MusicApp/home.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:MusicApp/marqee.dart';
 
 final Color mycolor = Color(0xff05c46b);
 final Color myseccolor = Color(0xfff5f6fa);
@@ -127,13 +128,16 @@ class _MyAppState extends State<MyApp> {
                         SizedBox(
                           height: 70,
                         ),
-                        Text(
-                          result != null
-                              ? result.files.single.name.split(".")[0]
-                              : "Play Music ",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: myseccolor,
+                        MarqueeWidget(
+                          direction: Axis.horizontal,
+                          child: Text(
+                            result != null
+                                ? result.files.single.name.split(".")[0]
+                                : "Play Music ",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: myseccolor,
+                            ),
                           ),
                         ),
                         SizedBox(
