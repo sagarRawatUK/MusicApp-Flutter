@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:MusicApp/home.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
@@ -45,6 +47,26 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    // final routes =
+    //     ModalRoute.of(context).settings.arguments as Map<String, File>;
+
+    Future getSong(path) async {
+      {
+        result = await FilePicker.platform.pickFiles();
+        //result =
+        if (result != null) {
+          int status =
+              await player.play(result.files.single.path, isLocal: true);
+          //await player.play(result.files.single.path, isLocal: true);
+          if (status == 1) {
+            setState(() {
+              isplaying = true;
+            });
+          }
+        }
+      }
+    }
+
     Widget home() {
       return MaterialApp(
           theme: ThemeData(fontFamily: "Merienda-Regular"),
@@ -82,20 +104,7 @@ class _MyAppState extends State<MyApp> {
                               child: IconButton(
                                   color: myseccolor,
                                   icon: Icon(Icons.library_music),
-                                  onPressed: () async {
-                                    result =
-                                        await FilePicker.platform.pickFiles();
-                                    if (result != null) {
-                                      int status = await player.play(
-                                          result.files.single.path,
-                                          isLocal: true);
-                                      if (status == 1) {
-                                        setState(() {
-                                          isplaying = true;
-                                        });
-                                      }
-                                    }
-                                  }),
+                                  onPressed: () => getSong),
                             ),
                             Container(
                               child: IconButton(
@@ -113,7 +122,7 @@ class _MyAppState extends State<MyApp> {
                                 horizontal: 20, vertical: 30),
                             decoration: BoxDecoration(boxShadow: [
                               BoxShadow(
-                                  color: Color(0x46000000),
+                                  color: Colors.black,
                                   offset: Offset(0, 10),
                                   spreadRadius: 0,
                                   blurRadius: 30)
@@ -126,7 +135,7 @@ class _MyAppState extends State<MyApp> {
                           ),
                         ),
                         SizedBox(
-                          height: 70,
+                          height: 60,
                         ),
                         MarqueeWidget(
                           direction: Axis.horizontal,
@@ -198,10 +207,10 @@ class _MyAppState extends State<MyApp> {
                                 icon: Icon(Icons.skip_previous),
                                 onPressed: () {}),
                             IconButton(
-                                color: myseccolor,
+                                color: Colors.white,
                                 icon: Icon(
                                     isplaying ? Icons.pause : Icons.play_arrow),
-                                iconSize: 60,
+                                iconSize: 70,
                                 onPressed: () {
                                   if (result != null) {
                                     if (isplaying) {

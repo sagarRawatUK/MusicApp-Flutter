@@ -32,6 +32,8 @@ dependencies:
   file_picker:
   path_provider:
   permission_handler:
+  path:
+  marquee:
   
 
   
