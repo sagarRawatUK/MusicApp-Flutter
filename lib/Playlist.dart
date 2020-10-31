@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:MusicApp/main.dart';
+import 'package:MusicApp/player.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 import 'marqee.dart';
 
@@ -61,9 +61,10 @@ class _SonglistState extends State<Songlist> {
                   padding: const EdgeInsets.all(5.0),
                   child: InkWell(
                     onTap: () {
-                      Navigator.of(context).pushNamed("MyApp", arguments: {
-                        'path': _songs[i],
-                      });
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PLayer(_songs[i])));
                     },
                     child: ListTile(
                       dense: true,
